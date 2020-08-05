@@ -7,26 +7,13 @@
             <h1><a href="/">This is a Tutorial</a></h1>
         </div>
 
-        <div>
-            <p>published: 04.08.2020, 11:30</p>
-            <h2><a href="">The Very First Post</a></h2>
-            <p>Look at all the learning happening!  So many new things!  
-                What will print out?  What will it look like?  Can one possibly 
-                remember so many new things at once?  Will the new lines created 
-                in this file actually transfer to the blog post?  WHO KNOW!  Thank 
-                you for reading.  Enjoy your day.
-            </p>
-        </div>
-
-        <div>
-            <p>published: 04.08.2020, 11:34</p>
-            <h2><a href="">Yet Another Post</a></h2>
-            <p>Bet you didn't think there would be another post!  THINK AGAIN.  
-                Back at ya with the sequel to The Very First Post.  Even more 
-                learning.  Even more typing.  Will the words every cease?  Yes.
-            </p>
-
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
 
     </body>
 </html>
